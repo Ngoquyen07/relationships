@@ -13,6 +13,8 @@ class TeacherController extends Controller
     public function index()
     {
         //
+        $teachers = Teacher::with(['students','classRooms'])->get();
+        return response()->json($teachers);
     }
 
     /**

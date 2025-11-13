@@ -13,6 +13,9 @@ class StudentController extends Controller
     public function index()
     {
         //
+        //$students = Student::with(['teacher','classRoom'])->get();
+        $students = Student::with('subjects')->get();
+        return response()->json($students);
     }
 
     /**

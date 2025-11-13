@@ -13,6 +13,9 @@ class ClassRoomController extends Controller
     public function index()
     {
         //
+        //$classRooms = ClassRoom::with(['teacher','students'])->get();
+        $classRooms = ClassRoom::with('subjects')->get();
+        return response()->json($classRooms);
     }
 
     /**

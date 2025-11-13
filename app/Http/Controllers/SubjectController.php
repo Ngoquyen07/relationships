@@ -13,6 +13,8 @@ class SubjectController extends Controller
     public function index()
     {
         //
+        $subjects = Subject::with(['students','classRooms'])->get();
+        return response()->json($subjects);
     }
 
     /**
