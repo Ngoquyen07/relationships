@@ -13,7 +13,11 @@ class TeacherController extends Controller
     public function index()
     {
         //
-        $teachers = Teacher::with(['students','classRooms'])->get();
+        //$teachers = Teacher::with(['students','classRooms'])->get();
+        //$teachers = Teacher::with('images')->get();
+        //$teachers = Teacher::with('reports')->get();
+        //$teachers = Teacher::with('projects')->get();
+        $teachers = Teacher::with('user')->get();
         return response()->json($teachers);
     }
 

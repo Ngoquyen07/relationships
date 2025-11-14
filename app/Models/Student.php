@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     //
-    function users(){
+    function user(){
         return $this->belongsTo(User::class);
     }
     function teacher(){
@@ -27,5 +27,15 @@ class Student extends Model
     function subjects(){
         return $this->belongsToMany(Subject::class, 'Scores', 'student_id', 'subject_id')
             ->withPivot('id','score');
+    }
+    function images(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
+    function reports()
+    {
+        return $this->morphMany(Report::class, 'reportable');
+    }
+    function projects(){
+        return $this->morphToMany(Project::class, 'projectable');
     }
 }

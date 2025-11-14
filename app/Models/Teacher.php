@@ -28,4 +28,14 @@ class Teacher extends Model
     {
         return $this->hasMany(ClassRoom::class);
     }
+    function images(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
+    function reports()
+    {
+        return $this->morphMany(Report::class, 'reportable');
+    }
+    function projects(){
+        return $this->morphToMany(Project::class, 'projectable');
+    }
 }

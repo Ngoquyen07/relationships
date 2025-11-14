@@ -14,7 +14,11 @@ class StudentController extends Controller
     {
         //
         //$students = Student::with(['teacher','classRoom'])->get();
-        $students = Student::with('subjects')->get();
+        //$students = Student::with('subjects')->get();
+        //$students = Student::with('images')->get();
+        //$students = Student::with('reports')->get();
+        //$students = Student::with('projects')->get();
+        $students = Student::with(['user','teacher','classRoom','subjects','images','reports','projects', ])->get();
         return response()->json($students);
     }
 
